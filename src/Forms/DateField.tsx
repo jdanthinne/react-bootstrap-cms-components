@@ -58,6 +58,7 @@ const DateField: React.FC<DateFieldProps> = ({
           onChange={(date) => context.form?.setFieldValue(name, date)}
           onBlur={context.form?.handleBlur}
           required={required}
+          autoComplete="off"
           disabled={
             disabled ||
             (context.editMode && context.loading) ||
