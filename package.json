@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-cms-components",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "Bootstrap-styled React components for building CMS",
   "main": "build/index.js",
   "scripts": {
@@ -10,6 +10,9 @@
   "author": "Jérôme Danthinne",
   "homepage": "https://github.com/jdanthinne/react-bootstrap-cms-components",
   "license": "MIT",
+  "peerDependencies": {
+    "react-intl": "^5.10.16"
+  },
   "devDependencies": {
     "@types/react": "^17.0.0",
     "@types/react-dom": "^17.0.0",
@@ -30,7 +33,6 @@
     "react-beautiful-dnd": "^13.0.0",
     "react-bootstrap": "^1.4.3",
     "react-datepicker": "^3.4.1",
-    "react-intl": "^5.10.16",
     "react-router-dom": "^5.2.0"
   }
 }
