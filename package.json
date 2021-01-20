@@ -1,5 +1,5 @@
 {
-  "name": "react-bootstrap-cms",
+  "name": "react-bootstrap-cms-components",
   "version": "0.1.0",
   "description": "Bootstrap-styled React components for building CMS",
   "main": "build/index.js",
@@ -8,6 +8,7 @@
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Jérôme Danthinne",
+  "homepage": "https://github.com/jdanthinne/react-bootstrap-cms-components",
   "license": "MIT",
   "devDependencies": {
     "@types/react": "^17.0.0",
