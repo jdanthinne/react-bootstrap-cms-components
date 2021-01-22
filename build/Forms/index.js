@@ -9,6 +9,7 @@ import Checkbox from "./Checkbox";
 import Checkboxes from "./Checkboxes";
 import Fieldset from "./Fieldset";
 import Button from "./Button";
+import Row from "./Row";
 import SubmitButton from "./SubmitButton";
 import useForm from "./useForm";
 var Forms = {
@@ -23,6 +24,7 @@ var Forms = {
     Checkboxes: Checkboxes,
     Fieldset: Fieldset,
     Button: Button,
+    Row: Row,
     SubmitButton: SubmitButton,
 };
 export default Forms;

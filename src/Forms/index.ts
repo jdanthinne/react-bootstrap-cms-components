@@ -9,6 +9,7 @@ import Checkbox from "./Checkbox";
 import Checkboxes from "./Checkboxes";
 import Fieldset from "./Fieldset";
 import Button from "./Button";
+import Row from "./Row";
 import SubmitButton from "./SubmitButton";
 import useForm from "./useForm";
 
@@ -24,6 +25,7 @@ const Forms = {
   Checkboxes,
   Fieldset,
   Button,
+  Row,
   SubmitButton,
 };
 

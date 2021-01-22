@@ -12,6 +12,7 @@ declare const Forms: {
     Checkboxes: import("react").FC<import("./Checkboxes").CheckboxesProps>;
     Fieldset: import("react").FC<import("./Fieldset").FieldsetProps>;
     Button: import("react").FC<import("./Button").ButtonProps>;
+    Row: import("react").FC<import("./Row").RowProps>;
     SubmitButton: import("react").FC<import("./SubmitButton").SubmitButtonProps>;
 };
 export default Forms;
