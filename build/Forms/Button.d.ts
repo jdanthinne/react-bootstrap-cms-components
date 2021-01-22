@@ -5,7 +5,7 @@ export interface ButtonProps {
     type?: "button" | "submit";
     disabled?: boolean;
     performingAction?: boolean;
-    variant?: "primary" | "success" | "danger" | "link";
+    variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark";
     icon?: IconDefinition;
     fullWidth?: boolean;
     onClick?: () => void;
