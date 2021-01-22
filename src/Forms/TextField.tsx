@@ -13,6 +13,7 @@ export interface TextFieldProps {
   autoCorrect?: "off" | "on";
   autoCapitalize?: "off" | "on" | "words" | "characters";
   disabled?: boolean;
+  col?: string;
 }
 
 const TextField: React.FC<TextFieldProps> = ({
@@ -25,22 +26,29 @@ const TextField: React.FC<TextFieldProps> = ({
   autoCorrect = "on",
   autoCapitalize = "on",
   disabled = false,
+  col,
 }) => {
   const context = useContext(FormContext);
   const error = context.form?.touched[name] && context.form?.errors[name];
 
+  const isVertical = col != undefined || context.vertical;
+
   return (
-    <div className={`form-group ${!context.vertical ? "row" : ""}`}>
+    <div
+      className={`${col ? `col-${col}` : "form-group"} ${
+        !isVertical ? "row" : ""
+      }`}
+    >
       <label
         htmlFor={name}
         className={
-          !context.vertical ? "col-form-label col-sm-2 form-control-label" : ""
+          !isVertical ? "col-form-label col-sm-2 form-control-label" : ""
         }
       >
         {label}
         {required && <span className="text-danger">*</span>}
       </label>
-      <FieldWrapper vertical={context.vertical!}>
+      <FieldWrapper vertical={isVertical!}>
         <input
           className={`form-control ${error ? "is-invalid" : ""}`}
           name={name}

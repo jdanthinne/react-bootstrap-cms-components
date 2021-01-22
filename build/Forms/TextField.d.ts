@@ -9,6 +9,7 @@ export interface TextFieldProps {
     autoCorrect?: "off" | "on";
     autoCapitalize?: "off" | "on" | "words" | "characters";
     disabled?: boolean;
+    col?: string;
 }
 declare const TextField: React.FC<TextFieldProps>;
 export default TextField;
