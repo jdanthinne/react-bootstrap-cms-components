@@ -5,6 +5,7 @@ export interface SelectProps {
     options: {
         key: string;
         value: string;
+        disabled?: boolean;
     }[];
     instructions?: string;
     required?: boolean;

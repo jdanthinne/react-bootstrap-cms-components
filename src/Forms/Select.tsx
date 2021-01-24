@@ -6,7 +6,7 @@ import FieldWrapper from "./FieldWrapper";
 export interface SelectProps {
   label: string;
   name: string;
-  options: { key: string; value: string }[];
+  options: { key: string; value: string; disabled?: boolean }[];
   instructions?: string;
   required?: boolean;
   disabled?: boolean;
@@ -43,14 +43,14 @@ const Select: React.FC<SelectProps> = ({
           onBlur={context.form?.handleBlur}
           onChange={context.form?.handleChange}
           required={required}
-          disabled={
-            disabled ||
-            (context.editMode && context.loading) ||
-            context.form?.isSubmitting
-          }
+          disabled={disabled || contextDisabled}
         >
           {options.map((option) => (
-            <option key={option.key} value={option.key}>
+            <option
+              key={option.key}
+              value={option.key}
+              disabled={option.disabled ?? false}
+            >
               {option.value}
             </option>
           ))}
