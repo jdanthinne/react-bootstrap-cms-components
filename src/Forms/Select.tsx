@@ -23,6 +23,11 @@ const Select: React.FC<SelectProps> = ({
   const context = useContext(FormContext);
   const error = context.form?.touched[name] && context.form?.errors[name];
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <div className={`form-group ${!context.vertical ? "row" : ""}`}>
       <label

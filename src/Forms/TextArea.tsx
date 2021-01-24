@@ -25,6 +25,11 @@ const TextArea: React.FC<TextAreaProps> = ({
   const context = useContext(FormContext);
   const error = context.form?.touched[name] && context.form?.errors[name];
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <div className={`form-group ${!context.vertical ? "row" : ""}`}>
       <label
@@ -47,11 +52,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           required={required}
           autoCapitalize={autoCapitalize}
           autoCorrect={autoCorrect}
-          disabled={
-            disabled ||
-            (context.editMode && context.loading) ||
-            context.form?.isSubmitting
-          }
+          disabled={disabled || contextDisabled}
           value={context.form?.values[name]}
         />
         {instructions && instructions !== "" && (

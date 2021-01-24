@@ -19,6 +19,7 @@ export interface FormContextProps<FormValues = any> {
   submitTitle?: string;
   fullWidthButton?: boolean;
   returnPath?: string;
+  readonly?: boolean;
 }
 
 const FormContext = React.createContext<FormContextProps>({
@@ -26,6 +27,7 @@ const FormContext = React.createContext<FormContextProps>({
   editMode: false,
   vertical: false,
   fullWidthButton: false,
+  readonly: false,
 });
 
 export default FormContext;

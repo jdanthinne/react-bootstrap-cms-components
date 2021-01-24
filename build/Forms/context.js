@@ -4,6 +4,7 @@ var FormContext = React.createContext({
     editMode: false,
     vertical: false,
     fullWidthButton: false,
+    readonly: false,
 });
 export default FormContext;
 //# sourceMappingURL=context.js.map

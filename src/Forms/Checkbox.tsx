@@ -18,6 +18,11 @@ const Checkbox: React.FC<CheckboxProps> = ({
 }) => {
   const context = useContext(FormContext);
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <div className={`form-group ${!context.vertical ? "row" : ""}`}>
       {!context.vertical && <div className="col-sm-2" />}
@@ -32,11 +37,7 @@ const Checkbox: React.FC<CheckboxProps> = ({
             value="true"
             type="checkbox"
             required={required}
-            disabled={
-              disabled ||
-              (context.editMode && context.loading) ||
-              context.form?.isSubmitting
-            }
+            disabled={disabled || contextDisabled}
           />
           <label className="form-check-label" htmlFor={name}>
             {label}

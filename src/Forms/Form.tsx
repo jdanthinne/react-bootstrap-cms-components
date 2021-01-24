@@ -19,45 +19,54 @@ const Form: React.FC<FormProps> = ({ onSubmit, extraButton, children }) => {
   return (
     <form onSubmit={context.form?.handleSubmit} noValidate>
       {children}
-      <hr />
-      <Row vertical={context.vertical!}>
-        <div>
-          <SubmitButton fullWidth={context.fullWidthButton} onSubmit={onSubmit}>
-            {context.submitTitle ? (
-              context.submitTitle
-            ) : (
-              <FormattedMessage
-                id={context.editMode ? "actions.saveUpdates" : "actions.save"}
-              />
-            )}
-          </SubmitButton>
-          {extraButton && <> {extraButton}</>}
-          {context.returnPath && (
-            <>
-              {" "}
+      {!context.readonly && (
+        <>
+          <hr />
+          <Row vertical={context.vertical!}>
+            <div>
+              <SubmitButton
+                fullWidth={context.fullWidthButton}
+                onSubmit={onSubmit}
+              >
+                {context.submitTitle ? (
+                  context.submitTitle
+                ) : (
+                  <FormattedMessage
+                    id={
+                      context.editMode ? "actions.saveUpdates" : "actions.save"
+                    }
+                  />
+                )}
+              </SubmitButton>
+              {extraButton && <> {extraButton}</>}
+              {context.returnPath && (
+                <>
+                  {" "}
+                  <Button
+                    variant="link"
+                    fullWidth={context.fullWidthButton}
+                    disabled={context.form?.isSubmitting}
+                    onClick={() => history.push(context.returnPath!)}
+                  >
+                    <FormattedMessage id={"actions.cancel"} />
+                  </Button>
+                </>
+              )}
+            </div>
+            {context.editMode && context.onDelete && (
               <Button
-                variant="link"
+                variant="danger"
+                icon={faTrash}
                 fullWidth={context.fullWidthButton}
                 disabled={context.form?.isSubmitting}
-                onClick={() => history.push(context.returnPath!)}
+                onClick={context.onDelete}
               >
-                <FormattedMessage id={"actions.cancel"} />
+                <FormattedMessage id={"actions.delete"} />
               </Button>
-            </>
-          )}
-        </div>
-        {context.editMode && context.onDelete && (
-          <Button
-            variant="danger"
-            icon={faTrash}
-            fullWidth={context.fullWidthButton}
-            disabled={context.form?.isSubmitting}
-            onClick={context.onDelete}
-          >
-            <FormattedMessage id={"actions.delete"} />
-          </Button>
-        )}
-      </Row>
+            )}
+          </Row>
+        </>
+      )}
     </form>
   );
 };

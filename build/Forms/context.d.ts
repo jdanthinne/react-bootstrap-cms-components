@@ -18,6 +18,7 @@ export interface FormContextProps<FormValues = any> {
     submitTitle?: string;
     fullWidthButton?: boolean;
     returnPath?: string;
+    readonly?: boolean;
 }
 declare const FormContext: React.Context<FormContextProps<any>>;
 export default FormContext;

@@ -36,13 +36,16 @@ const Button: React.FC<ButtonProps> = ({
 }) => {
   const context = useContext(FormContext);
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <button
       type={type}
       className={`btn btn-${variant} ${fullWidth && "btn-block"}`}
-      disabled={
-        disabled || performingAction || (context.editMode && context.loading)
-      }
+      disabled={disabled || performingAction || contextDisabled}
       onClick={onClick}
     >
       {performingAction ? (

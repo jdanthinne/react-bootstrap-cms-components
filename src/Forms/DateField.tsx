@@ -31,6 +31,11 @@ const DateField: React.FC<DateFieldProps> = ({
   const intl = useIntl();
   const error = context.form?.touched[name] && context.form?.errors[name];
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <div className={`form-group ${!context.vertical ? "row" : ""}`}>
       <label
@@ -59,11 +64,7 @@ const DateField: React.FC<DateFieldProps> = ({
           onBlur={context.form?.handleBlur}
           required={required}
           autoComplete="off"
-          disabled={
-            disabled ||
-            (context.editMode && context.loading) ||
-            context.form?.isSubmitting
-          }
+          disabled={disabled || contextDisabled}
         />
         {instructions && instructions !== "" && (
           <small

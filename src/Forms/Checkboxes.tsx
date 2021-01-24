@@ -23,6 +23,11 @@ const Checkboxes: React.FC<CheckboxesProps> = ({
   const context = useContext(FormContext);
   const error = context.form?.touched[name] && context.form?.errors[name];
 
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
+
   return (
     <fieldset className="form-group">
       <div className={!context.vertical ? "row" : ""}>
@@ -45,11 +50,7 @@ const Checkboxes: React.FC<CheckboxesProps> = ({
                 value={option.key}
                 onChange={context.form?.handleChange}
                 checked={context.form?.values[name].includes(option.key)}
-                disabled={
-                  disabled ||
-                  (context.editMode && context.loading) ||
-                  context.form?.isSubmitting
-                }
+                disabled={disabled || contextDisabled}
               />
               <label
                 className="form-check-label"

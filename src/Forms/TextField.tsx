@@ -32,6 +32,10 @@ const TextField: React.FC<TextFieldProps> = ({
   const error = context.form?.touched[name] && context.form?.errors[name];
 
   const isVertical = col != undefined || context.vertical;
+  const contextDisabled =
+    (context.editMode && context.loading) ||
+    context.form?.isSubmitting ||
+    context.readonly;
 
   return (
     <div
@@ -63,11 +67,7 @@ const TextField: React.FC<TextFieldProps> = ({
           }
           autoCapitalize={autoCapitalize}
           autoCorrect={autoCorrect}
-          disabled={
-            disabled ||
-            (context.editMode && context.loading) ||
-            context.form?.isSubmitting
-          }
+          disabled={disabled || contextDisabled}
         />
         {instructions && instructions !== "" && (
           <small
