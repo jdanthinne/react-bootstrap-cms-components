@@ -3,35 +3,20 @@ import React, { useContext } from "react";
 import FormContext from "./context";
 import FieldWrapper from "./FieldWrapper";
 
-export interface TextFieldProps {
+export interface TextFieldProps
+  extends React.InputHTMLAttributes<HTMLInputElement> {
   label: string;
   name: string;
   instructions?: string;
-  type?: string;
-  required?: boolean;
-  autoComplete?: string;
-  autoCorrect?: "off" | "on";
-  autoCapitalize?: "off" | "on" | "words" | "characters";
-  disabled?: boolean;
   col?: string;
 }
 
-const TextField: React.FC<TextFieldProps> = ({
-  label,
-  name,
-  instructions,
-  type = "text",
-  required = false,
-  autoComplete,
-  autoCorrect = "on",
-  autoCapitalize = "on",
-  disabled = false,
-  col,
-}) => {
+const TextField: React.FC<TextFieldProps> = (props) => {
   const context = useContext(FormContext);
-  const error = context.form?.touched[name] && context.form?.errors[name];
+  const error =
+    context.form?.touched[props.name] && context.form?.errors[props.name];
 
-  const isVertical = col != undefined || context.vertical;
+  const isVertical = props.col != undefined || context.vertical;
   const contextDisabled =
     (context.editMode && context.loading) ||
     context.form?.isSubmitting ||
@@ -39,42 +24,45 @@ const TextField: React.FC<TextFieldProps> = ({
 
   return (
     <div
-      className={`${col ? `col-${col}` : "form-group"} ${
+      className={`${props.col ? `col-${props.col}` : "form-group"} ${
         !isVertical ? "row" : ""
       }`}
     >
       <label
-        htmlFor={name}
+        htmlFor={props.name}
         className={
           !isVertical ? "col-form-label col-sm-2 form-control-label" : ""
         }
       >
-        {label}
-        {required && <span className="text-danger">*</span>}
+        {props.label}
+        {props.required && <span className="text-danger">*</span>}
       </label>
       <FieldWrapper vertical={isVertical!}>
         <input
           className={`form-control ${error ? "is-invalid" : ""}`}
-          name={name}
-          id={name}
-          value={context.form?.values[name]}
+          name={props.name}
+          id={props.name}
+          value={context.form?.values[props.name]}
           onBlur={context.form?.handleBlur}
           onChange={context.form?.handleChange}
-          type={type}
-          required={required}
+          type={props.type}
+          required={props.required}
           autoComplete={
-            autoComplete ?? (type === "email" ? "email" : undefined)
+            props.autoComplete ?? (props.type === "email" ? "email" : undefined)
           }
-          autoCapitalize={autoCapitalize}
-          autoCorrect={autoCorrect}
-          disabled={disabled || contextDisabled}
+          autoCapitalize={props.autoCapitalize}
+          autoCorrect={props.autoCorrect}
+          disabled={props.disabled || contextDisabled}
+          placeholder={props.placeholder}
         />
-        {!context.readonly && instructions && instructions !== "" && (
-          <small
-            className="form-text text-muted"
-            dangerouslySetInnerHTML={{ __html: instructions }}
-          />
-        )}
+        {!context.readonly &&
+          props.instructions &&
+          props.instructions !== "" && (
+            <small
+              className="form-text text-muted"
+              dangerouslySetInnerHTML={{ __html: props.instructions }}
+            />
+          )}
         {error && <small className="form-text text-danger">{error}</small>}
       </FieldWrapper>
     </div>
