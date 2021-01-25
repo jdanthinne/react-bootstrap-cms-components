@@ -20,7 +20,7 @@ var Checkboxes = function (_a) {
                         React.createElement("input", { className: "form-check-input", type: "checkbox", name: name, id: name + "-" + option.key, value: option.key, onChange: (_a = context.form) === null || _a === void 0 ? void 0 : _a.handleChange, checked: (_b = context.form) === null || _b === void 0 ? void 0 : _b.values[name].includes(option.key), disabled: disabled || contextDisabled }),
                         React.createElement("label", { className: "form-check-label", htmlFor: name + "-" + option.key }, option.value)));
                 }),
-                instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
+                !context.readonly && instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
                 error && React.createElement("small", { className: "form-text text-danger" }, error)))));
 };
 export default Checkboxes;

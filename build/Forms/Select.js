@@ -17,7 +17,7 @@ var Select = function (_a) {
                 var _a;
                 return (React.createElement("option", { key: option.key, value: option.key, disabled: (_a = option.disabled) !== null && _a !== void 0 ? _a : false }, option.value));
             })),
-            instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
+            !context.readonly && instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
             error && React.createElement("small", { className: "form-text text-danger" }, error))));
 };
 export default Select;

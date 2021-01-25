@@ -15,7 +15,7 @@ var TextField = function (_a) {
             required && React.createElement("span", { className: "text-danger" }, "*")),
         React.createElement(FieldWrapper, { vertical: isVertical },
             React.createElement("input", { className: "form-control " + (error ? "is-invalid" : ""), name: name, id: name, value: (_e = context.form) === null || _e === void 0 ? void 0 : _e.values[name], onBlur: (_f = context.form) === null || _f === void 0 ? void 0 : _f.handleBlur, onChange: (_g = context.form) === null || _g === void 0 ? void 0 : _g.handleChange, type: type, required: required, autoComplete: autoComplete !== null && autoComplete !== void 0 ? autoComplete : (type === "email" ? "email" : undefined), autoCapitalize: autoCapitalize, autoCorrect: autoCorrect, disabled: disabled || contextDisabled }),
-            instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
+            !context.readonly && instructions && instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: instructions } })),
             error && React.createElement("small", { className: "form-text text-danger" }, error))));
 };
 export default TextField;

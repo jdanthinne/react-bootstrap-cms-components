@@ -61,7 +61,7 @@ const Select: React.FC<SelectProps> = ({
           ))}
         </select>
 
-        {instructions && instructions !== "" && (
+        {!context.readonly && instructions && instructions !== "" && (
           <small
             className="form-text text-muted"
             dangerouslySetInnerHTML={{ __html: instructions }}

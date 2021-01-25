@@ -55,7 +55,7 @@ const TextArea: React.FC<TextAreaProps> = ({
           disabled={disabled || contextDisabled}
           value={context.form?.values[name]}
         />
-        {instructions && instructions !== "" && (
+        {!context.readonly && instructions && instructions !== "" && (
           <small
             className="form-text text-muted"
             dangerouslySetInnerHTML={{ __html: instructions }}

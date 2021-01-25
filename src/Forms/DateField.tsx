@@ -66,7 +66,7 @@ const DateField: React.FC<DateFieldProps> = ({
           autoComplete="off"
           disabled={disabled || contextDisabled}
         />
-        {instructions && instructions !== "" && (
+        {!context.readonly && instructions && instructions !== "" && (
           <small
             className="form-text text-muted"
             dangerouslySetInnerHTML={{ __html: instructions }}

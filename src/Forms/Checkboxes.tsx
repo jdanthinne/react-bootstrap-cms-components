@@ -60,7 +60,7 @@ const Checkboxes: React.FC<CheckboxesProps> = ({
               </label>
             </div>
           ))}
-          {instructions && instructions !== "" && (
+          {!context.readonly && instructions && instructions !== "" && (
             <small
               className="form-text text-muted"
               dangerouslySetInnerHTML={{ __html: instructions }}
