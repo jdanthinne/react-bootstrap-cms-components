@@ -1,5 +1,5 @@
 import React from "react";
-export interface SelectProps {
+export interface SelectProps extends React.SelectHTMLAttributes<HTMLSelectElement> {
     label: string;
     name: string;
     options: {
@@ -8,8 +8,7 @@ export interface SelectProps {
         disabled?: boolean;
     }[];
     instructions?: string;
-    required?: boolean;
-    disabled?: boolean;
+    col?: string;
 }
 declare const Select: React.FC<SelectProps>;
 export default Select;
