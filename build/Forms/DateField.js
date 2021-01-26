@@ -20,7 +20,11 @@ var DateField = function (props) {
             props.label,
             props.required && React.createElement("span", { className: "text-danger" }, "*")),
         React.createElement(FieldWrapper, { vertical: isVertical },
-            React.createElement(DatePicker, { locale: "fr", clearButtonTitle: intl.formatMessage({ id: "actions.clear" }), todayButton: intl.formatMessage({ id: "misc.today" }), showTimeSelect: props.showTime, showTimeSelectOnly: props.showTimeOnly, timeIntervals: props.timeIntervals, dateFormat: props.showTime ? "dd/MM/yyyy - HH:mm" : "dd/MM/yyyy", isClearable: !props.required, placeholderText: "jj/mm/aaaa", className: "form-control " + (error ? "is-invalid" : ""), name: props.name, id: props.name, selected: (_d = context.form) === null || _d === void 0 ? void 0 : _d.values[props.name], onChange: function (date) { var _a; return (_a = context.form) === null || _a === void 0 ? void 0 : _a.setFieldValue(props.name, date); }, onBlur: (_e = context.form) === null || _e === void 0 ? void 0 : _e.handleBlur, required: props.required, autoComplete: "off", disabled: props.disabled || contextDisabled }),
+            React.createElement(DatePicker, { locale: "fr", clearButtonTitle: intl.formatMessage({ id: "actions.clear" }), todayButton: intl.formatMessage({ id: "misc.today" }), timeCaption: intl.formatMessage({ id: "misc.time" }), showTimeSelect: props.showTime, showTimeSelectOnly: props.showTimeOnly, timeIntervals: props.timeIntervals, dateFormat: props.showTime
+                    ? props.showTimeOnly
+                        ? "HH:mm"
+                        : "dd/MM/yyyy - HH:mm"
+                    : "dd/MM/yyyy", isClearable: !props.required, placeholderText: props.placeholder, className: "form-control " + (error ? "is-invalid" : ""), name: props.name, id: props.name, selected: (_d = context.form) === null || _d === void 0 ? void 0 : _d.values[props.name], onChange: function (date) { var _a; return (_a = context.form) === null || _a === void 0 ? void 0 : _a.setFieldValue(props.name, date); }, onBlur: (_e = context.form) === null || _e === void 0 ? void 0 : _e.handleBlur, required: props.required, autoComplete: "off", disabled: props.disabled || contextDisabled }),
             !context.readonly &&
                 props.instructions &&
                 props.instructions !== "" && (React.createElement("small", { className: "form-text text-muted", dangerouslySetInnerHTML: { __html: props.instructions } })),

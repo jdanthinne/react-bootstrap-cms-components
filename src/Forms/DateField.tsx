@@ -53,12 +53,19 @@ const DateField: React.FC<DateFieldProps> = (props) => {
           locale="fr"
           clearButtonTitle={intl.formatMessage({ id: "actions.clear" })}
           todayButton={intl.formatMessage({ id: "misc.today" })}
+          timeCaption={intl.formatMessage({ id: "misc.time" })}
           showTimeSelect={props.showTime}
           showTimeSelectOnly={props.showTimeOnly}
           timeIntervals={props.timeIntervals}
-          dateFormat={props.showTime ? "dd/MM/yyyy - HH:mm" : "dd/MM/yyyy"}
+          dateFormat={
+            props.showTime
+              ? props.showTimeOnly
+                ? "HH:mm"
+                : "dd/MM/yyyy - HH:mm"
+              : "dd/MM/yyyy"
+          }
           isClearable={!props.required}
-          placeholderText="jj/mm/aaaa"
+          placeholderText={props.placeholder}
           className={`form-control ${error ? "is-invalid" : ""}`}
           name={props.name}
           id={props.name}
