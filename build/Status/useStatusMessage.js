@@ -17,18 +17,23 @@ function useStatusMessage() {
     var statusMessage = (_a = location.state) === null || _a === void 0 ? void 0 : _a.statusMessage;
     var setStatusMessage = function (props) {
         var _a;
-        var statusMessage = {
-            textId: props.textId,
-            values: props.values,
-            severity: (_a = props.severity) !== null && _a !== void 0 ? _a : "primary",
-        };
-        if (props.redirect && props.redirect.path !== location.pathname) {
-            history.push(props.redirect.path, __assign(__assign({}, props.redirect.state), { statusMessage: statusMessage }));
+        if (props) {
+            var statusMessage_1 = {
+                textId: props.textId,
+                values: props.values,
+                severity: (_a = props.severity) !== null && _a !== void 0 ? _a : "primary",
+            };
+            if (props.redirect && props.redirect.path !== location.pathname) {
+                history.push(props.redirect.path, __assign(__assign({}, props.redirect.state), { statusMessage: statusMessage_1 }));
+            }
+            else {
+                history.replace(__assign(__assign({}, history.location), { state: {
+                        statusMessage: statusMessage_1,
+                    } }));
+            }
         }
         else {
-            history.replace(__assign(__assign({}, history.location), { state: {
-                    statusMessage: statusMessage,
-                } }));
+            history.replace(__assign(__assign({}, history.location), { state: { statusMessage: null } }));
         }
     };
     return { statusMessage: statusMessage, setStatusMessage: setStatusMessage };
