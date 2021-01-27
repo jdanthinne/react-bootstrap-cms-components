@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { MutableRefObject, useContext } from "react";
 
 import FormContext from "./context";
 import FieldWrapper from "./FieldWrapper";
@@ -9,6 +9,7 @@ export interface TextFieldProps
   name: string;
   instructions?: string;
   col?: string;
+  inputRef?: MutableRefObject<HTMLInputElement>;
 }
 
 const TextField: React.FC<TextFieldProps> = (props) => {
@@ -54,6 +55,7 @@ const TextField: React.FC<TextFieldProps> = (props) => {
           autoCorrect={props.autoCorrect}
           disabled={props.disabled || contextDisabled}
           placeholder={props.placeholder}
+          ref={props.inputRef}
         />
         {!context.readonly &&
           props.instructions &&
