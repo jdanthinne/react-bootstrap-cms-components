@@ -15,7 +15,7 @@ function useStatusMessage() {
   const location = useLocation<LocationState>();
   const statusMessage = location.state?.statusMessage;
 
-  const setStatusMessage = (props?: SetStatusProps) => {
+  const setStatusMessage = (props: SetStatusProps | null) => {
     if (props) {
       const statusMessage = {
         textId: props.textId,

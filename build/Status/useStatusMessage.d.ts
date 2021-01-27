@@ -7,6 +7,6 @@ interface SetStatusProps extends StatusMessage {
 }
 declare function useStatusMessage(): {
     statusMessage: StatusMessage | undefined;
-    setStatusMessage: (props?: SetStatusProps | undefined) => void;
+    setStatusMessage: (props: SetStatusProps | null) => void;
 };
 export default useStatusMessage;
