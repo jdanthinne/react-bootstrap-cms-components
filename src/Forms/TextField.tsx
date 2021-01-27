@@ -1,4 +1,4 @@
-import React, { MutableRefObject, useContext } from "react";
+import React, { RefObject, useContext } from "react";
 
 import FormContext from "./context";
 import FieldWrapper from "./FieldWrapper";
@@ -9,7 +9,7 @@ export interface TextFieldProps
   name: string;
   instructions?: string;
   col?: string;
-  inputRef?: MutableRefObject<HTMLInputElement>;
+  inputRef?: RefObject<HTMLInputElement>;
 }
 
 const TextField: React.FC<TextFieldProps> = (props) => {

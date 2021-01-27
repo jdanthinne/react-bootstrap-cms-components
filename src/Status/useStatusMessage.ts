@@ -15,25 +15,29 @@ function useStatusMessage() {
   const location = useLocation<LocationState>();
   const statusMessage = location.state?.statusMessage;
 
-  const setStatusMessage = (props: SetStatusProps) => {
-    const statusMessage = {
-      textId: props.textId,
-      values: props.values,
-      severity: props.severity ?? "primary",
-    };
+  const setStatusMessage = (props?: SetStatusProps) => {
+    if (props) {
+      const statusMessage = {
+        textId: props.textId,
+        values: props.values,
+        severity: props.severity ?? "primary",
+      };
 
-    if (props.redirect && props.redirect.path !== location.pathname) {
-      history.push(props.redirect.path, {
-        ...props.redirect.state,
-        statusMessage: statusMessage,
-      });
-    } else {
-      history.replace({
-        ...history.location,
-        state: {
+      if (props.redirect && props.redirect.path !== location.pathname) {
+        history.push(props.redirect.path, {
+          ...props.redirect.state,
           statusMessage: statusMessage,
-        },
-      });
+        });
+      } else {
+        history.replace({
+          ...history.location,
+          state: {
+            statusMessage: statusMessage,
+          },
+        });
+      }
+    } else {
+      history.replace({ ...history.location, state: { statusMessage: null } });
     }
   };
 
