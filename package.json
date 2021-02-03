@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-cms-components",
-  "version": "0.4.3",
+  "version": "0.4.4",
   "description": "Bootstrap-styled React components for building CMS",
   "main": "build/index.js",
   "scripts": {
@@ -11,6 +11,9 @@
   "homepage": "https://github.com/jdanthinne/react-bootstrap-cms-components",
   "license": "MIT",
   "peerDependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.34",
+    "@fortawesome/free-solid-svg-icons": "^5.15.2",
+    "@fortawesome/react-fontawesome": "^0.1.14",
     "react-intl": "^5.10.16"
   },
   "devDependencies": {
@@ -24,9 +27,6 @@
     "typescript": "^4.1.3"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-svg-core": "^1.2.34",
-    "@fortawesome/free-solid-svg-icons": "^5.15.2",
-    "@fortawesome/react-fontawesome": "^0.1.14",
     "@types/react-beautiful-dnd": "^13.0.0",
     "@types/react-datepicker": "^3.1.2",
     "@types/react-router-dom": "^5.1.7",
