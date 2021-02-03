@@ -2,6 +2,7 @@ import React, { RefObject } from "react";
 export interface TextFieldProps extends React.InputHTMLAttributes<HTMLInputElement> {
     label: string;
     name: string;
+    unit?: string;
     instructions?: string;
     col?: string;
     inputRef?: RefObject<HTMLInputElement>;
