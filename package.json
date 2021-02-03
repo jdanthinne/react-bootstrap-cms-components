@@ -1,6 +1,6 @@
 {
   "name": "react-bootstrap-cms-components",
-  "version": "0.4.1",
+  "version": "0.4.2",
   "description": "Bootstrap-styled React components for building CMS",
   "main": "build/index.js",
   "scripts": {
