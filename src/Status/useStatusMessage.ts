@@ -4,6 +4,7 @@ import { StatusMessage } from "./types";
 
 interface LocationState {
   statusMessage?: StatusMessage;
+  from?: { pathname: string };
 }
 
 interface SetStatusProps extends StatusMessage {
@@ -11,7 +12,7 @@ interface SetStatusProps extends StatusMessage {
 }
 
 function useStatusMessage() {
-  const history = useHistory();
+  const history = useHistory<LocationState>();
   const location = useLocation<LocationState>();
   const statusMessage = location.state?.statusMessage;
 
@@ -32,12 +33,16 @@ function useStatusMessage() {
         history.replace({
           ...history.location,
           state: {
+            ...history.location.state,
             statusMessage: statusMessage,
           },
         });
       }
     } else {
-      history.replace({ ...history.location, state: { statusMessage: null } });
+      history.replace({
+        ...history.location,
+        state: { ...history.location.state, statusMessage: undefined },
+      });
     }
   };
 

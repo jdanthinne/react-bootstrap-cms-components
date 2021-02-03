@@ -27,13 +27,11 @@ function useStatusMessage() {
                 history.push(props.redirect.path, __assign(__assign({}, props.redirect.state), { statusMessage: statusMessage_1 }));
             }
             else {
-                history.replace(__assign(__assign({}, history.location), { state: {
-                        statusMessage: statusMessage_1,
-                    } }));
+                history.replace(__assign(__assign({}, history.location), { state: __assign(__assign({}, history.location.state), { statusMessage: statusMessage_1 }) }));
             }
         }
         else {
-            history.replace(__assign(__assign({}, history.location), { state: { statusMessage: null } }));
+            history.replace(__assign(__assign({}, history.location), { state: __assign(__assign({}, history.location.state), { statusMessage: undefined }) }));
         }
     };
     return { statusMessage: statusMessage, setStatusMessage: setStatusMessage };
