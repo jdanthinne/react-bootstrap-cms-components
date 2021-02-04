@@ -23,7 +23,7 @@ var FileField = function (props) {
                     React.createElement("div", { className: "card-body" },
                         React.createElement("div", { className: "d-flex align-items-start justify-content-between" },
                             React.createElement("p", { className: "card-text" }, props.existingFile.name),
-                            React.createElement("button", { className: "btn btn-danger btn-sm", title: intl.formatMessage({ id: "actions.delete" }), onClick: props.onDelete },
+                            React.createElement("a", { className: "btn btn-danger btn-sm", title: intl.formatMessage({ id: "actions.delete" }), onClick: props.onDelete },
                                 React.createElement(FontAwesomeIcon, { icon: faTrash })))))))) : (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "custom-file" },
                 React.createElement("input", { type: "file", className: "custom-file-input " + (error ? "is-invalid" : ""), id: props.name, name: props.name, onBlur: (_d = context.form) === null || _d === void 0 ? void 0 : _d.handleBlur, onChange: function (e) {
