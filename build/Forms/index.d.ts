@@ -1,4 +1,5 @@
 /// <reference types="react" />
+import { FileFieldFileProps } from "./FileField";
 import useForm from "./useForm";
 declare const Forms: {
     Form: import("react").FC<import("./Form").FormProps>;
@@ -6,6 +7,7 @@ declare const Forms: {
     Instructions: import("react").FC<import("./Instructions").InstructionsProps>;
     TextField: import("react").FC<import("./TextField").TextFieldProps>;
     TextArea: import("react").FC<import("./TextArea").TextAreaProps>;
+    FileField: import("react").FC<import("./FileField").FileFieldProps>;
     Select: import("react").FC<import("./Select").SelectProps>;
     DateField: import("react").FC<import("./DateField").DateFieldProps>;
     Checkbox: import("react").FC<import("./Checkbox").CheckboxProps>;
@@ -17,3 +19,4 @@ declare const Forms: {
 };
 export default Forms;
 export { useForm };
+export type { FileFieldFileProps };

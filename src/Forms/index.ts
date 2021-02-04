@@ -3,6 +3,7 @@ import Context from "./context";
 import Instructions from "./Instructions";
 import TextField from "./TextField";
 import TextArea from "./TextArea";
+import FileField, { FileFieldFileProps } from "./FileField";
 import Select from "./Select";
 import DateField from "./DateField";
 import Checkbox from "./Checkbox";
@@ -19,6 +20,7 @@ const Forms = {
   Instructions,
   TextField,
   TextArea,
+  FileField,
   Select,
   DateField,
   Checkbox,
@@ -31,3 +33,4 @@ const Forms = {
 
 export default Forms;
 export { useForm };
+export type { FileFieldFileProps };

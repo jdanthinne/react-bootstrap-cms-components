@@ -3,6 +3,7 @@ import Context from "./context";
 import Instructions from "./Instructions";
 import TextField from "./TextField";
 import TextArea from "./TextArea";
+import FileField from "./FileField";
 import Select from "./Select";
 import DateField from "./DateField";
 import Checkbox from "./Checkbox";
@@ -18,6 +19,7 @@ var Forms = {
     Instructions: Instructions,
     TextField: TextField,
     TextArea: TextArea,
+    FileField: FileField,
     Select: Select,
     DateField: DateField,
     Checkbox: Checkbox,

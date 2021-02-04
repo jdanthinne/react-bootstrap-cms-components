@@ -1,5 +1,5 @@
 import FormattedMessageHTML from "./FormattedMessageHTML";
-import Forms, { useForm } from "./Forms";
+import Forms, { useForm, FileFieldFileProps } from "./Forms";
 import Loader from "./Loader";
 import Modal from "./Modal";
 import Status, { useStatusMessage } from "./Status";
@@ -19,3 +19,4 @@ export {
   DraggableTable,
   Title,
 };
+export type { FileFieldFileProps };
