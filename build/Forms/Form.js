@@ -14,7 +14,7 @@ var Form = function (_a) {
         children,
         !context.readonly && (React.createElement(React.Fragment, null,
             React.createElement("hr", null),
-            React.createElement(Row, { vertical: context.vertical },
+            React.createElement(Row, { vertical: context.vertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount },
                 React.createElement("div", null,
                     React.createElement(SubmitButton, { fullWidth: context.fullWidthButton, onSubmit: onSubmit }, context.submitTitle ? (context.submitTitle) : (React.createElement(FormattedMessage, { id: context.editMode ? "actions.saveUpdates" : "actions.save" }))),
                     extraButton && React.createElement(React.Fragment, null,
@@ -28,14 +28,14 @@ var Form = function (_a) {
                     React.createElement(FormattedMessage, { id: "actions.delete" }))))))));
 };
 var Row = function (_a) {
-    var children = _a.children, vertical = _a.vertical;
+    var children = _a.children, vertical = _a.vertical, horizontalLabelColumnCount = _a.horizontalLabelColumnCount;
     if (vertical) {
         return React.createElement(React.Fragment, null, children);
     }
     else {
         return (React.createElement("div", { className: "form-group row" },
-            React.createElement("div", { className: "col-sm-2" }),
-            React.createElement("div", { className: "col-sm-10 d-flex justify-content-between" }, children)));
+            React.createElement("div", { className: "col-sm-" + horizontalLabelColumnCount }),
+            React.createElement("div", { className: "col-sm-" + (12 - horizontalLabelColumnCount) + " d-flex justify-content-between" }, children)));
     }
 };
 export default Form;

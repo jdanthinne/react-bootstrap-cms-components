@@ -43,14 +43,19 @@ const FileField: React.FC<FileFieldProps> = (props) => {
       <label
         htmlFor={props.name}
         className={
-          !isVertical ? "col-form-label col-sm-2 form-control-label" : ""
+          !isVertical
+            ? `col-form-label col-sm-${context.horizontalLabelColumnCount} form-control-label`
+            : ""
         }
       >
         {props.label}
         {props.required && <span className="text-danger">*</span>}
       </label>
 
-      <FieldWrapper vertical={isVertical!}>
+      <FieldWrapper
+        vertical={isVertical!}
+        horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+      >
         {props.existingFile && props.existingFile.type.startsWith("image/") ? (
           <div className="row">
             <div className="col-sm-6">
@@ -59,13 +64,15 @@ const FileField: React.FC<FileFieldProps> = (props) => {
                 <div className="card-body">
                   <div className="d-flex align-items-start justify-content-between">
                     <p className="card-text">{props.existingFile.name}</p>
-                    <a
-                      className="btn btn-danger btn-sm"
-                      title={intl.formatMessage({ id: "actions.delete" })}
-                      onClick={props.onDelete}
-                    >
-                      <FontAwesomeIcon icon={faTrash} />
-                    </a>
+                    {props.readOnly !== true && (
+                      <a
+                        className="btn btn-danger btn-sm"
+                        title={intl.formatMessage({ id: "actions.delete" })}
+                        onClick={props.onDelete}
+                      >
+                        <FontAwesomeIcon icon={faTrash} />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

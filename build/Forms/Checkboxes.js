@@ -10,10 +10,12 @@ var Checkboxes = function (_a) {
         context.readonly;
     return (React.createElement("fieldset", { className: "form-group" },
         React.createElement("div", { className: !context.vertical ? "row" : "" },
-            React.createElement("legend", { className: "pt-0 " + (!context.vertical ? "col-form-label col-sm-2" : "") },
+            React.createElement("legend", { className: "pt-0 " + (!context.vertical
+                    ? "col-form-label col-sm-" + context.horizontalLabelColumnCount
+                    : "") },
                 label,
                 required && React.createElement("span", { className: "text-danger" }, "*")),
-            React.createElement(FieldWrapper, { vertical: context.vertical },
+            React.createElement(FieldWrapper, { vertical: context.vertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount },
                 options.map(function (option) {
                     var _a, _b;
                     return (React.createElement("div", { key: option.key, className: "form-check" },

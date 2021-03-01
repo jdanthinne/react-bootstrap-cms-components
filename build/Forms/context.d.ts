@@ -15,6 +15,7 @@ export interface FormContextProps<FormValues = any> {
     editMode?: boolean;
     onDelete?: () => void;
     vertical?: boolean;
+    horizontalLabelColumnCount: number;
     submitTitle?: string;
     fullWidthButton?: boolean;
     returnPath?: string;

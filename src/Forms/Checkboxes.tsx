@@ -33,13 +33,18 @@ const Checkboxes: React.FC<CheckboxesProps> = ({
       <div className={!context.vertical ? "row" : ""}>
         <legend
           className={`pt-0 ${
-            !context.vertical ? "col-form-label col-sm-2" : ""
+            !context.vertical
+              ? `col-form-label col-sm-${context.horizontalLabelColumnCount}`
+              : ""
           }`}
         >
           {label}
           {required && <span className="text-danger">*</span>}
         </legend>
-        <FieldWrapper vertical={context.vertical!}>
+        <FieldWrapper
+          vertical={context.vertical!}
+          horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+        >
           {options.map((option) => (
             <div key={option.key} className="form-check">
               <input

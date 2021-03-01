@@ -25,10 +25,12 @@ var TextField = function (props) {
         }
     }, [props.type]);
     return (React.createElement("div", { className: (props.col ? "col-" + props.col : "form-group") + " " + (!isVertical ? "row" : "") },
-        React.createElement("label", { htmlFor: props.name, className: !isVertical ? "col-form-label col-sm-2 form-control-label" : "" },
+        React.createElement("label", { htmlFor: props.name, className: !isVertical
+                ? "col-form-label col-sm-" + context.horizontalLabelColumnCount + " form-control-label"
+                : "" },
             props.label,
             props.required && React.createElement("span", { className: "text-danger" }, "*")),
-        React.createElement(FieldWrapper, { vertical: isVertical },
+        React.createElement(FieldWrapper, { vertical: isVertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount },
             React.createElement("div", { className: "input-group" },
                 preprendIcon && (React.createElement("div", { className: "input-group-prepend" },
                     React.createElement("span", { className: "input-group-text" },

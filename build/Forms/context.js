@@ -3,6 +3,7 @@ var FormContext = React.createContext({
     loading: false,
     editMode: false,
     vertical: false,
+    horizontalLabelColumnCount: 2,
     fullWidthButton: false,
     readonly: false,
 });

@@ -8,8 +8,8 @@ var Checkbox = function (_a) {
     var contextDisabled = (context.editMode && context.loading) || ((_b = context.form) === null || _b === void 0 ? void 0 : _b.isSubmitting) ||
         context.readonly;
     return (React.createElement("div", { className: "form-group " + (!context.vertical ? "row" : "") },
-        !context.vertical && React.createElement("div", { className: "col-sm-2" }),
-        React.createElement(FieldWrapper, { vertical: context.vertical },
+        !context.vertical && (React.createElement("div", { className: "col-sm-" + context.horizontalLabelColumnCount })),
+        React.createElement(FieldWrapper, { vertical: context.vertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount },
             React.createElement("div", { className: "form-check" },
                 React.createElement("input", { className: "form-check-input", name: name, id: name, checked: (_d = (_c = context.form) === null || _c === void 0 ? void 0 : _c.values[name]) !== null && _d !== void 0 ? _d : false, onChange: (_e = context.form) === null || _e === void 0 ? void 0 : _e.handleChange, value: "true", type: "checkbox", required: required, disabled: disabled || contextDisabled }),
                 React.createElement("label", { className: "form-check-label", htmlFor: name },

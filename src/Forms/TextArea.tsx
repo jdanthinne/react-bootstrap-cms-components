@@ -35,13 +35,18 @@ const TextArea: React.FC<TextAreaProps> = ({
       <label
         htmlFor={name}
         className={
-          !context.vertical ? "col-form-label col-sm-2 form-control-label" : ""
+          !context.vertical
+            ? `col-form-label col-sm-${context.horizontalLabelColumnCount} form-control-label`
+            : ""
         }
       >
         {label}
         {required && <span className="text-danger">*</span>}
       </label>
-      <FieldWrapper vertical={context.vertical!}>
+      <FieldWrapper
+        vertical={context.vertical!}
+        horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+      >
         <textarea
           className={`form-control ${error ? "is-invalid" : ""}`}
           name={name}

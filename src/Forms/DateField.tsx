@@ -42,13 +42,18 @@ const DateField: React.FC<DateFieldProps> = (props) => {
       <label
         htmlFor={props.name}
         className={
-          !isVertical ? "col-form-label col-sm-2 form-control-label" : ""
+          !isVertical
+            ? `col-form-label col-sm-${context.horizontalLabelColumnCount} form-control-label`
+            : ""
         }
       >
         {props.label}
         {props.required && <span className="text-danger">*</span>}
       </label>
-      <FieldWrapper vertical={isVertical!}>
+      <FieldWrapper
+        vertical={isVertical!}
+        horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+      >
         <DatePicker
           locale="fr"
           clearButtonTitle={intl.formatMessage({ id: "actions.clear" })}

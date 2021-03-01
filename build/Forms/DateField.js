@@ -16,10 +16,12 @@ var DateField = function (props) {
     var contextDisabled = (context.editMode && context.loading) || ((_c = context.form) === null || _c === void 0 ? void 0 : _c.isSubmitting) ||
         context.readonly;
     return (React.createElement("div", { className: (props.col ? "col-" + props.col : "form-group") + " " + (!isVertical ? "row" : "") },
-        React.createElement("label", { htmlFor: props.name, className: !isVertical ? "col-form-label col-sm-2 form-control-label" : "" },
+        React.createElement("label", { htmlFor: props.name, className: !isVertical
+                ? "col-form-label col-sm-" + context.horizontalLabelColumnCount + " form-control-label"
+                : "" },
             props.label,
             props.required && React.createElement("span", { className: "text-danger" }, "*")),
-        React.createElement(FieldWrapper, { vertical: isVertical },
+        React.createElement(FieldWrapper, { vertical: isVertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount },
             React.createElement(DatePicker, { locale: "fr", clearButtonTitle: intl.formatMessage({ id: "actions.clear" }), todayButton: intl.formatMessage({ id: "misc.today" }), timeCaption: intl.formatMessage({ id: "misc.time" }), showTimeSelect: props.showTime, showTimeSelectOnly: props.showTimeOnly, timeIntervals: props.timeIntervals, dateFormat: props.showTime
                     ? props.showTimeOnly
                         ? "HH:mm"

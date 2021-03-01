@@ -13,18 +13,20 @@ var FileField = function (props) {
     var contextDisabled = (context.editMode && context.loading) || ((_c = context.form) === null || _c === void 0 ? void 0 : _c.isSubmitting) ||
         context.readonly;
     return (React.createElement("div", { className: (props.col ? "col-" + props.col : "form-group") + " " + (!isVertical ? "row" : "") },
-        React.createElement("label", { htmlFor: props.name, className: !isVertical ? "col-form-label col-sm-2 form-control-label" : "" },
+        React.createElement("label", { htmlFor: props.name, className: !isVertical
+                ? "col-form-label col-sm-" + context.horizontalLabelColumnCount + " form-control-label"
+                : "" },
             props.label,
             props.required && React.createElement("span", { className: "text-danger" }, "*")),
-        React.createElement(FieldWrapper, { vertical: isVertical }, props.existingFile && props.existingFile.type.startsWith("image/") ? (React.createElement("div", { className: "row" },
+        React.createElement(FieldWrapper, { vertical: isVertical, horizontalLabelColumnCount: context.horizontalLabelColumnCount }, props.existingFile && props.existingFile.type.startsWith("image/") ? (React.createElement("div", { className: "row" },
             React.createElement("div", { className: "col-sm-6" },
                 React.createElement("div", { className: "card" },
                     React.createElement("img", { className: "card-img-top", src: props.existingFile.url }),
                     React.createElement("div", { className: "card-body" },
                         React.createElement("div", { className: "d-flex align-items-start justify-content-between" },
                             React.createElement("p", { className: "card-text" }, props.existingFile.name),
-                            React.createElement("a", { className: "btn btn-danger btn-sm", title: intl.formatMessage({ id: "actions.delete" }), onClick: props.onDelete },
-                                React.createElement(FontAwesomeIcon, { icon: faTrash })))))))) : (React.createElement(React.Fragment, null,
+                            props.readOnly !== true && (React.createElement("a", { className: "btn btn-danger btn-sm", title: intl.formatMessage({ id: "actions.delete" }), onClick: props.onDelete },
+                                React.createElement(FontAwesomeIcon, { icon: faTrash }))))))))) : (React.createElement(React.Fragment, null,
             React.createElement("div", { className: "custom-file" },
                 React.createElement("input", { type: "file", className: "custom-file-input " + (error ? "is-invalid" : ""), id: props.name, name: props.name, onBlur: (_d = context.form) === null || _d === void 0 ? void 0 : _d.handleBlur, onChange: function (e) {
                         var _a, _b;

@@ -56,14 +56,19 @@ const TextField: React.FC<TextFieldProps> = (props) => {
       <label
         htmlFor={props.name}
         className={
-          !isVertical ? "col-form-label col-sm-2 form-control-label" : ""
+          !isVertical
+            ? `col-form-label col-sm-${context.horizontalLabelColumnCount} form-control-label`
+            : ""
         }
       >
         {props.label}
         {props.required && <span className="text-danger">*</span>}
       </label>
 
-      <FieldWrapper vertical={isVertical!}>
+      <FieldWrapper
+        vertical={isVertical!}
+        horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+      >
         <div className="input-group">
           {preprendIcon && (
             <div className="input-group-prepend">

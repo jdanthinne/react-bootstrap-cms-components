@@ -16,6 +16,7 @@ export interface FormContextProps<FormValues = any> {
   editMode?: boolean;
   onDelete?: () => void;
   vertical?: boolean;
+  horizontalLabelColumnCount: number;
   submitTitle?: string;
   fullWidthButton?: boolean;
   returnPath?: string;
@@ -26,6 +27,7 @@ const FormContext = React.createContext<FormContextProps>({
   loading: false,
   editMode: false,
   vertical: false,
+  horizontalLabelColumnCount: 2,
   fullWidthButton: false,
   readonly: false,
 });

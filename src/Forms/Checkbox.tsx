@@ -25,8 +25,13 @@ const Checkbox: React.FC<CheckboxProps> = ({
 
   return (
     <div className={`form-group ${!context.vertical ? "row" : ""}`}>
-      {!context.vertical && <div className="col-sm-2" />}
-      <FieldWrapper vertical={context.vertical!}>
+      {!context.vertical && (
+        <div className={`col-sm-${context.horizontalLabelColumnCount}`} />
+      )}
+      <FieldWrapper
+        vertical={context.vertical!}
+        horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+      >
         <div className="form-check">
           <input
             className="form-check-input"

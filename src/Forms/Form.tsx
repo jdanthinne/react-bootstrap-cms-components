@@ -22,7 +22,10 @@ const Form: React.FC<FormProps> = ({ onSubmit, extraButton, children }) => {
       {!context.readonly && (
         <>
           <hr />
-          <Row vertical={context.vertical!}>
+          <Row
+            vertical={context.vertical!}
+            horizontalLabelColumnCount={context.horizontalLabelColumnCount}
+          >
             <div>
               <SubmitButton
                 fullWidth={context.fullWidthButton}
@@ -74,15 +77,24 @@ const Form: React.FC<FormProps> = ({ onSubmit, extraButton, children }) => {
 interface FooterProps {
   children: React.ReactNode;
   vertical: boolean;
+  horizontalLabelColumnCount: number;
 }
-const Row: React.FC<FooterProps> = ({ children, vertical }) => {
+const Row: React.FC<FooterProps> = ({
+  children,
+  vertical,
+  horizontalLabelColumnCount,
+}) => {
   if (vertical) {
     return <>{children}</>;
   } else {
     return (
       <div className="form-group row">
-        <div className="col-sm-2"></div>
-        <div className="col-sm-10 d-flex justify-content-between">
+        <div className={`col-sm-${horizontalLabelColumnCount}`}></div>
+        <div
+          className={`col-sm-${
+            12 - horizontalLabelColumnCount
+          } d-flex justify-content-between`}
+        >
           {children}
         </div>
       </div>
