@@ -7,6 +7,7 @@ export interface ButtonProps {
     performingAction?: boolean;
     variant?: "primary" | "secondary" | "success" | "danger" | "warning" | "info" | "link" | "light" | "dark";
     icon?: IconDefinition;
+    className?: string;
     fullWidth?: boolean;
     onClick?: () => void;
 }

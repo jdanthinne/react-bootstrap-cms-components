@@ -20,6 +20,7 @@ export interface ButtonProps {
     | "light"
     | "dark";
   icon?: IconDefinition;
+  className?: string;
   fullWidth?: boolean;
   onClick?: () => void;
 }
@@ -30,6 +31,7 @@ const Button: React.FC<ButtonProps> = ({
   performingAction = false,
   variant = "primary",
   icon,
+  className,
   fullWidth = false,
   children,
   onClick,
@@ -44,7 +46,7 @@ const Button: React.FC<ButtonProps> = ({
   return (
     <button
       type={type}
-      className={`btn btn-${variant} ${fullWidth && "btn-block"}`}
+      className={`btn btn-${variant} ${fullWidth && "btn-block"} ${className}`}
       disabled={disabled || performingAction || contextDisabled}
       onClick={onClick}
     >
