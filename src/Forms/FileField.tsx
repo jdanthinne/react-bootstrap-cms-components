@@ -64,7 +64,7 @@ const FileField: React.FC<FileFieldProps> = (props) => {
                 <div className="card-body">
                   <div className="d-flex align-items-start justify-content-between">
                     <p className="card-text">{props.existingFile.name}</p>
-                    {props.readOnly !== true && (
+                    {!contextDisabled && (
                       <a
                         className="btn btn-danger btn-sm"
                         title={intl.formatMessage({ id: "actions.delete" })}
